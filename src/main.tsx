@@ -5,7 +5,5 @@ import { App } from './assets/App';
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <App />
-    <App />
-    <App />
   </StrictMode>,
 );
