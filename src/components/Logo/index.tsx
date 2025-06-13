@@ -6,7 +6,7 @@ export const Logo = () => {
     <div className={styles.logo}>
       <a className={styles.logoLink} href='#'>
         <TimerIcon />
-        <span>Chronos</span>
+        <span>Pomodoro</span>
       </a>
     </div>
   );
