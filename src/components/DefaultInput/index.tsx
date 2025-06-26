@@ -11,6 +11,7 @@ export function DefaultInput({
   labelText,
   ...rest
 }: DefaultInputProps) {
+
   return (
     <>
       <label htmlFor={id}>{labelText}</label>
