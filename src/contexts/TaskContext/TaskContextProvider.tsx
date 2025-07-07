@@ -42,18 +42,16 @@ export function TaskContextProvider({ children }: TaskContextProviderProps) {
       worker.terminate();
     }
 
+    document.title = `${state.formattedSecondsRemaining} - Pomodoro Focus`
     worker.postMessage(state);
   }, [worker, state]);
 
   useEffect(() => {
     if (state.activeTask && playBeepRef.current === null) {
-      console.log('Carregando áudio...');
       playBeepRef.current = loadBeep();
     } else {
-      console.log('Zerando áudio...');
       playBeepRef.current = null;
     }
-    console.log('Active task mudou!', state.activeTask);
   }, [state.activeTask]);
 
   return (
