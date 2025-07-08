@@ -1,6 +1,7 @@
 import type { TaskStateModel } from '../../components/models/TaskStateModel';
 import { formatSecondsToMinutes } from '../../utils/formatSecondsToMinutes';
 import { getNextCycle } from '../../utils/getNextCycle';
+import { initialTaskState } from './initialTaskState';
 import { TaskActionTypes, type TaskActionModel } from './taskActions';
 
 export function taskReducer(
@@ -9,17 +10,7 @@ export function taskReducer(
 ): TaskStateModel {
   switch (action.type) {
     case TaskActionTypes.START_TASK: {
-      // setState(prevState => {
-      //   return {
-      //     ...prevState,
-      //     config: { ...prevState.config },
-      //     activeTask: newTask,
-      //     currentCycle: nextCycle,
-      //     secondsRemaining, //Conferir
-      //     formattedSecondsRemaining: formatSecondsToMinutes(secondsRemaining), //Conferir
-      //     tasks: [...prevState.tasks, newTask],
-      //   };
-      // });
+     
       const newTask = action.payload;
       const nextCycle = getNextCycle(state.currentCycle);
       const secondsRemaining = newTask.duration * 60;
@@ -64,7 +55,7 @@ export function taskReducer(
     
     
     case TaskActionTypes.RESET_STATE: {
-      return state;
+      return {...initialTaskState};
     }
     case TaskActionTypes.COUNT_DOWN: {
       return {

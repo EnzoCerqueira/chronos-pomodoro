@@ -12,6 +12,7 @@ import { Tips } from '../Tips';
 import { toast } from 'react-toastify';
 import { showMessage } from '../../adapters/showMessage';
 
+
 export const MainForm = () => {
   const { state, dispatch } = useTaskContext();
   const taskNameInput = useRef<HTMLInputElement>(null);
@@ -79,27 +80,27 @@ export const MainForm = () => {
       )}
 
       <div className='formRow'>
-        {!state.activeTask && (
-          <DefaultButton
-            aria-label='Iniciar nova tarefa'
-            title='Iniciar nova tarefa'
-            type='submit'
-            icon={<PlayCircleIcon />}
-            key='botao_submit'
-          />
-        )}
+          {!state.activeTask && (
+            <DefaultButton
+              aria-label='Iniciar nova tarefa'
+              title='Iniciar nova tarefa'
+              type='submit'
+              icon={<PlayCircleIcon />}
+              key='botao_submit'
+            />
+          )}
 
-        {!!state.activeTask && (
-          <DefaultButton
-            aria-label='Iniciar nova tarefa'
-            title='Iniciar nova tarefa'
-            type='button'
-            color='red'
-            icon={<StopCircleIcon />}
-            onClick={handleInterruptTask}
-            key='botao_button'
-          />
-        )}
+          {!!state.activeTask && (
+            <DefaultButton
+              aria-label='Iniciar nova tarefa'
+              title='Iniciar nova tarefa'
+              type='button'
+              color='red'
+              icon={<StopCircleIcon />}
+              onClick={handleInterruptTask}
+              key='botao_button'
+            />
+          )}
       </div>
     </form>
   );
