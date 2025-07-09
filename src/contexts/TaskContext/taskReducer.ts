@@ -10,7 +10,6 @@ export function taskReducer(
 ): TaskStateModel {
   switch (action.type) {
     case TaskActionTypes.START_TASK: {
-     
       const newTask = action.payload;
       const nextCycle = getNextCycle(state.currentCycle);
       const secondsRemaining = newTask.duration * 60;
@@ -52,10 +51,9 @@ export function taskReducer(
         }),
       };
     }
-    
-    
+
     case TaskActionTypes.RESET_STATE: {
-      return {...initialTaskState};
+      return { ...initialTaskState };
     }
     case TaskActionTypes.COUNT_DOWN: {
       return {
@@ -65,6 +63,9 @@ export function taskReducer(
           action.payload.secondsRemaining,
         ),
       };
+    }
+    case TaskActionTypes.CHANGE_SETTINGS: {
+      return { ...state, config: { ...action.payload } };
     }
   }
   //sempre deve retornar o estado
